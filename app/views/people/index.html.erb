@@ -1,10 +1,34 @@
 <h1>People</h1>
+ 
 
+<% if params[:name].present? %>
+  <p>Name: <%= params[:name] %>
+<% end %>
+<% if params[:mood].present? %>
+  <p>Name: <%= params[:mood] %>
+<% end %>
+<% if params[:min_age].present? %>
+  <p>Name: <%= params[:min_age] %>
+<% end %>
+<% if params[:max_age].present? %>
+  <p>Name: <%= params[:max_age] %>
+<% end %>
 
-<ul>
-  <% @people.each do |person| %>
-    <li><%= person.name %></li>
-  <% end %>
-</ul>
-
-
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Mood</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.name %></td>
+        <td><%= person.age %></td>
+        <td><%= person.mood %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
