@@ -1,19 +1,20 @@
+<p id="alert"><%= alert %></p>
+ 
 <h1>People</h1>
  
-
 <% if params[:name].present? %>
-  <p>Name: <%= params[:name] %></p>
+  <p>Name: <%= params[:name] %>
 <% end %>
 <% if params[:mood].present? %>
-  <p>Mood: <%= params[:mood] %></p>
+  <p>Name: <%= params[:mood] %>
 <% end %>
 <% if params[:min_age].present? %>
-  <p>Min Age: <%= params[:min_age] %></p>
+  <p>Name: <%= params[:min_age] %>
 <% end %>
 <% if params[:max_age].present? %>
-  <p>Max Age: <%= params[:max_age] %></p>
+  <p>Name: <%= params[:max_age] %>
 <% end %>
-
+ 
 <table>
   <thead>
     <tr>
@@ -25,14 +26,30 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td>
-          <a href='<%= "/people/#{person.id}" %>'>
-            <%= person.name %>
-          </a>
-        </td>
+        <td><%= link_to person.name, person %></td>
         <td><%= person.age %></td>
         <td><%= person.mood %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+ 
+<hr>
+ 
+<%= form_with(model: @person) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :age %>
+    <%= form.number_field :age, min: 0, step: 1 %>
+  </div>
+  <div>
+    <%= form.label :mood %>
+    <%= form.text_field :mood %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

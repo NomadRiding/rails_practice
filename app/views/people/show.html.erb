@@ -1,6 +1,8 @@
+<p id="notice"><%= notice %></p>
+ 
 <h1><%= @person.name %></h1>
  
 <p>Mood: <%= @person.mood %></p>
 <p>Age: <%= @person.age %></p>
  
-<a href="/people">All People</a>
+<%= link_to "All People", people_path %>

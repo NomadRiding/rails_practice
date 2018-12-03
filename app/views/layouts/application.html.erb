@@ -4,12 +4,15 @@
     <title>PeopleApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+ 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+ 
   <body>
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
+    <%= link_to "All People", people_path %>
     <%= yield %>
   </body>
 </html>
