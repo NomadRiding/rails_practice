@@ -17,7 +17,7 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
     if @person.save
-      redirect_to person, notice: "Person Created!"
+      redirect_to @person, notice: "Person Created!"
     else
       redirect_to people_path, alert: @person.errors.full_messages.join(', ')
     end
