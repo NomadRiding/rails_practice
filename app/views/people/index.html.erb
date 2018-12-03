@@ -25,7 +25,11 @@
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= person.name %></td>
+        <td>
+          <a href='<%= "/people/#{person.id}" %>'>
+            <%= person.name %>
+          </a>
+        </td>
         <td><%= person.age %></td>
         <td><%= person.mood %></td>
       </tr>

@@ -8,4 +8,8 @@ class PeopleController < ApplicationController
         @people = @people.where("age <= ?", params[:max_age].to_i) if params[:max_age].present?
     end
 
+    def show
+        @person = Person.find(params[:id])
+    end
+
 end
